@@ -65,7 +65,7 @@ angular
           if (!angular.isFunction($element.height)) {
             $log.error('textareaFit directive only works when jQuery is loaded');
           } else if ($element.is('textarea')) {
-            $log.info('textareaFit directive only works for elements of type "textareo"');
+            $log.info('textareaFit directive only works for elements of type "textarea"');
           } else {
             var elClone = angular.element('<div>'),
                 setEqualHeight = function () {
