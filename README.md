@@ -11,6 +11,8 @@ prevent problems with angulars default trimming.
 
 Just add both directives as attributes to your existing textarea:
 
+```html
   <textarea ng-model="yourModel" ng-trim="0" textarea-fit></textarea>
+```
 
 This directive requires jQuery to be loaded before angular.
