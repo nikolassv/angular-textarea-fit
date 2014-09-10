@@ -1,4 +1,6 @@
-# module containing a directive to automaticly resize a textarea to always fit the height of its content
+# angular-textarea-fit
+
+A module containing a directive to automaticly resize a textarea to always fit the height of its content
 
 The directive `textarea-fit` can be used on a textarea element to always set its 
 height to the height of its content. This prevents the display of a vertical
