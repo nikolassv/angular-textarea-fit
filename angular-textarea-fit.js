@@ -28,13 +28,18 @@
  * height to the height of its content. This prevents the display of a vertical
  * scrollbar inside the textarea.
  *
+ * note that the directive `ng-trim=0` should also be set on that textarea to 
+ * prevent problems with angulars default trimming.
+ *
+ * this directive also requires you to load jQuery before angular
+ *
  * @author Nikolas Schmidt-Voigt <nikolas.schmidt-voigt@posteo.de>
  * @module textarea-fit
  */
 angular
   .module('textarea-fit',[])
   .directive('textareaFit', [
-    '$log', '$document',
+    '$log',
     function ($log) {
       var copyCssStyles = function (elSrc, elDest) {
             var stylesToCopy = [
@@ -57,10 +62,12 @@ angular
       return {
         restrict: 'A',
         link : function ($scope, $element) {
-          if ($element[0].nodeName.toLowerCase !== 'textarea') {
+          if (!angular.isFunction($element.height)) {
+            $log.error('textareaFit directive only works when jQuery is loaded');
+          } else if ($element.is('textarea')) {
             $log.info('textareaFit directive only works for elements of type "textareo"');
           } else {
-            var elClone = angular.element($document.createElement('<div>'),
+            var elClone = angular.element('<div>'),
                 setEqualHeight = function () {
                   var curText = $element.val();
                   if (/\n$/.test(curText)) {
@@ -71,11 +78,9 @@ angular
                   $element.height(elClone.height());
                 };
 
-            $element.attr('ng-trim', 0);
-
             elClone
+              .hide()
               .css({
-                'display' : 'none',
                 'white-space': 'pre-wrap',
                 'word-wrap' : 'break-word'
               });
