@@ -1,0 +1,26 @@
+{
+  "name": "angular-textarea-fit",
+  "main": "angular-textarea-fit.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/nikolassv/angular-textarea-fit",
+  "authors": [
+    "Nikolas Schmidt-Voigt <nikolas.schmidt-voigt@posteo.de>"
+  ],
+  "description": "angular directive to set the height of a textarea to fit its content",
+  "keywords": [
+    "angular",
+    "ui",
+    "form",
+    "directive",
+    "textarea"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
